@@ -12,25 +12,31 @@
             
 </head>
 <body>
-<div class="row">
-    <form class="col s12" method="post" action="{{route('save.add')}}">
-      <div class="row">
-        <div class="input-field col s12">
-          <input placeholder="Name" id="name" type="varchar" class="validate">
-          <label for="name">Post</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-            <textarea id="textarea" class="materialize-textarea" placeholder="textarea"></textarea>
-            <label for="description">Description</label>
-        </div>
-      </div>
-      <div class="row">
-        <div class="input-field col s12">
-            <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
-        </div>
-      </div>      
-    </form>
+  @if(Session::has('post_add'))
+  <span>{{Session::get('post_add')}}</span>
+  @endif
+  <div class="container">
+    <div class="row">
+        <form class="col s6" method="post" action="{{route('save.add')}}">
+          @csrf
+          <div class="row">
+            <div class="input-field s12 m4 l8">
+              <label for="name">Post</label>
+              <input placeholder="Name" id="name" name="name" type="text" class="validate">
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field s12 m4 l8">
+                <label for="description">Description</label>
+                <textarea id="description" name="description" class="materialize-textarea" placeholder="description"></textarea>
+            </div>
+          </div>
+          <div class="row">
+            <div class="input-field s12 m4 l8">
+                <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
+            </div>
+        </form>
+    </div>      
+  </div>
 </body>
 </html>

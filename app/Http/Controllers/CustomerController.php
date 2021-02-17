@@ -25,4 +25,9 @@ class CustomerController extends Controller
         ]);
         return back()->with('post_add','Data added successfully');
     }
+    public function list()
+    {
+        $cust = DB::table('customers')->get();
+        return view('display', ['cust' => $cust]);
+    }
 }

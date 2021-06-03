@@ -24,9 +24,8 @@ Route::get('/products', [ProductController::class, 'index']);
 Route::post('/products', [ProductController::class, 'save']);
 Route::put('/products/{id}', [ProductController::class, 'update']);
 Route::delete('/products/{id}', [ProductController::class, 'delete']);
+
 Route::get('/employees', [EmployeeController::class, 'index']);
-
-
-
-
-
+Route::post('/employees', [EmployeeController::class, 'save']);
+Route::put('/employees/{id}', [EmployeeController::class, 'update']);
+Route::delete('/employees/{id}', [EmployeeController::class, 'delete']);

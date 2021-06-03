@@ -17,9 +17,7 @@ class ProductController extends Controller
     {
         $data=$request->all();
         $product = Product::create($data);
-
         return response(['product' => $product, 'message' => 'data save successfully'],201);
-        
     }
     public function update(Request $request, $id)
     {   //return $request->all();
